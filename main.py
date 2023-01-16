@@ -17,7 +17,8 @@ playerImg = pygame.image.load('joystick.png')
 playerX = 370
 playerY = 480
 
-
+def player():
+    screen.blit(playerImg, (playerX, playerY))
 
 
 # Game loop
@@ -28,4 +29,6 @@ while running:
             running = False
 
     screen.fill((0, 0, 0))
+
+    player()
     pygame.display.update()
