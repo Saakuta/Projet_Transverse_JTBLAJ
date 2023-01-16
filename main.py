@@ -7,10 +7,17 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 
-# Title and Icon
+# Caption and Icon
 pygame.display.set_caption("WIP")
 icon = pygame.image.load('joystick.png')
 pygame.display.set_icon(icon)
+
+# Player
+playerImg = pygame.image.load('joystick.png')
+playerX = 370
+playerY = 480
+
+
 
 
 # Game loop
@@ -20,4 +27,5 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill((0, 255, 255))
+    screen.fill((0, 0, 0))
+    pygame.display.update()
