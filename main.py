@@ -40,7 +40,7 @@ while running:
 
 
 
-        # if keystroke is pressed check wether it's right or lefteee
+        # if keystroke is pressed check wether it's right or left
         if event.type == pygame.KEYDOWN:
             print(event.unicode)
             if event.type == pygame.K_q:
