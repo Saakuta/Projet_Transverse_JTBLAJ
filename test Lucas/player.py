@@ -12,3 +12,8 @@ class Player(pygame.sprite.Sprite): #0n attribut le superclass sprite pr pvr met
         self.rect = self.image.get_rect() #dimension du joueur 
         self.rect.x = 400
         self.rect.y = 500
+
+    
+    def jump(self):
+        self.rect.y -= self.velocity
+

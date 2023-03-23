@@ -32,6 +32,17 @@ while running:
     #si fermeture canvas
     for event in pygame.event.get(): #boucle pour tous les events 
 
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT: #evenement de fermeture 
             running = False
             pygame.quit() #Ferme le canvas
+
+        
+        elif event.type == pygame.KEYDOWN: #evenement de detection de touche
+
+            #quelle touche ?
+            if event.key == pygame.K_SPACE:
+                print("jump")
+                game.player.jump()
+
+
+
