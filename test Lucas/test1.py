@@ -61,3 +61,8 @@ while running:
             elif event.key == pygame.K_DOWN:
                 print("down")
                 game.player.move_down()
+
+            #moove up 
+            elif event.key == pygame.K_UP:
+                print("up")
+                game.player.jump()
