@@ -17,3 +17,12 @@ class Player(pygame.sprite.Sprite): #0n attribut le superclass sprite pr pvr met
     def jump(self):
         self.rect.y -= self.velocity
 
+    def move_right(self):
+        self.rect.x += self.velocity
+
+    def move_left(self):
+        self.rect.x -= self.velocity
+
+    def move_down(self):
+        self.rect.y += self.velocity
+

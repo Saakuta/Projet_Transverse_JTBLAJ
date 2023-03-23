@@ -44,5 +44,20 @@ while running:
                 print("jump")
                 game.player.jump()
 
+            elif event.key == pygame.K_RIGHT:
+                print("right")
+                game.player.move_right()
 
+            elif event.key == pygame.K_LEFT:
+                print("left")
+                game.player.move_left() 
 
+            elif event.key == pygame.K_ESCAPE:
+                print("escape")
+                running = False
+                pygame.quit() #Ferme le canvas
+
+            #moove down
+            elif event.key == pygame.K_DOWN:
+                print("down")
+                game.player.move_down()
