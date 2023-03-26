@@ -5,7 +5,11 @@ pygame.init()
 
 #Création de la fenêtre
 
-pygame.display.set_caption("Titre du jeu") #Nom du canvas
+pygame.display.set_caption("C moi wsh") #Nom du canvas
+
+icon = pygame.image.load('test Lucas/images/Edamura.jpg') #icone de la fenêtre
+pygame.display.set_icon(icon)
+
 screen = pygame.display.set_mode((1280,720)) #Résolution
 
 #charger image 
