@@ -26,43 +26,34 @@ while running:
     #applique l'image du joueur
     screen.blit(game.player.image, game.player.rect)
 
+    #vérifier si le joueur souhaite aller à gauche ou à droite, haut et bas
+    if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x < screen.get_width() - game.player.rect.width:
+        game.player.move_right()
+    elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
+        game.player.move_left()
+    elif game.pressed.get(pygame.K_UP) and game.player.rect.y > 0:
+        game.player.move_up()
+    elif game.pressed.get(pygame.K_DOWN) and game.player.rect.y < screen.get_height() - game.player.rect.height:
+        game.player.move_down()
+
+
     #Mettre à jour le canvas
     pygame.display.flip()
 
     #si fermeture canvas
     for event in pygame.event.get(): #boucle pour tous les events 
 
-        if event.type == pygame.QUIT: #evenement de fermeture 
+        if event.type == pygame.QUIT: #evenement fermeture 
             running = False
             pygame.quit() #Ferme le canvas
 
         
         elif event.type == pygame.KEYDOWN: #evenement de detection de touche
+            game.pressed[event.key] = True #on ajoute la touche dans le dictionnaire
 
-            #quelle touche ?
-            if event.key == pygame.K_SPACE:
-                print("jump")
-                game.player.jump()
-
-            elif event.key == pygame.K_RIGHT:
-                print("right")
-                game.player.move_right()
-
-            elif event.key == pygame.K_LEFT:
-                print("left")
-                game.player.move_left() 
-
-            elif event.key == pygame.K_ESCAPE:
-                print("escape")
+            if event.key == pygame.K_ESCAPE:
                 running = False
                 pygame.quit() #Ferme le canvas
-
-            #moove down
-            elif event.key == pygame.K_DOWN:
-                print("down")
-                game.player.move_down()
-
-            #moove up 
-            elif event.key == pygame.K_UP:
-                print("up")
-                game.player.jump()
+        
+        elif event.type == pygame.KEYUP:#touche non detectée
+            game.pressed[event.key] = False
