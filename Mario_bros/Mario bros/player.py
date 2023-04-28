@@ -31,7 +31,10 @@ class Player:
 
         self.rect = self.surface.get_rect(center=(self.x_position, self.y_position))
         self.x_position += self.x_velocity
-
+        if self.x_position < 0:
+            self.x_position = 0
+        elif self.x_position > self.screen_width - self.rect.width:
+            self.x_position = self.screen_width - self.rect.width
         if self.y_velocity > 0:
             self.surface = self.jumping_surface
         else:
