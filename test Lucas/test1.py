@@ -7,7 +7,7 @@ pygame.init()
 
 pygame.display.set_caption("C moi wsh") #Nom du canvas
 
-icon = pygame.image.load('test Lucas/images/Edamura.jpg') #icone de la fenêtre
+icon = pygame.image.load('images\Edamura.jpg') #icone de la fenêtre
 pygame.display.set_icon(icon)
 
 screen = pygame.display.set_mode((1280,720)) #Résolution
@@ -21,6 +21,7 @@ game = Game()
 
 #boucle pour maintenir le canvas ouvert
 running = True
+
 
 while running:
 
