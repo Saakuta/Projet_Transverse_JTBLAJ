@@ -54,8 +54,15 @@ class Player(pygame.sprite.Sprite):
                 y0 = self.jump_start_y
                 y = -0.5 * a * t ** 2 + v0 * t + y0  # calculer la position actuelle du joueur
                 self.rect.y = y
-
+        if self.x_position < 0:
+            self.x_position = 0
+        elif self.x_position > self.screen_width - self.rect.width:
+            self.x_position = self.screen_width - self.rect.width
         # empêcher le joueur de sortir de l'écran
+        if self.x_position < 0:
+            self.x_position = 0
+        elif self.x_position > self.screen_width - self.rect.width:
+            self.x_position = self.screen_width - self.rect.width
         if self.rect.bottom > self.screen.get_height():
             self.rect.bottom = self.screen.get_height()
 
