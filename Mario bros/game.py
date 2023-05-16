@@ -7,7 +7,7 @@ class Game:
         pygame.init()
         self.clock = pygame.time.Clock()
         self.screen = screen
-        pygame.display.set_caption("Lucas le bg")
+        pygame.display.set_caption("Bibi le bg")
         self.background = pygame.image.load("assets/background.png")
         self.clock = pygame.time.Clock()
 
