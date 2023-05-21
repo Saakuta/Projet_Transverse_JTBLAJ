@@ -5,6 +5,7 @@ class Animation:
         self.current_frame = 0  # Index de l'image courante
         self.animation_timer = 0  # Timer pour gérer le passage à l'image suivante
 
+
     def update(self, dt):
         self.animation_timer += dt  # Temps écoulé depuis le dernier appel à update()
 
