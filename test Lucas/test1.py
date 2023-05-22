@@ -7,13 +7,13 @@ pygame.init()
 
 pygame.display.set_caption("C moi wsh") #Nom du canvas
 
-icon = pygame.image.load('test Lucas/images/Edamura.jpg') #icone de la fenêtre
+icon = pygame.image.load('images\Edamura.jpg') #icone de la fenêtre
 pygame.display.set_icon(icon)
 
 screen = pygame.display.set_mode((1280,720)) #Résolution
 
 #charger image 
-background = pygame.image.load('test Lucas/images/Background.jpg')
+background = pygame.image.load('test lucas/images/Background.jpg')
 
 #charger le jeu
 game = Game()
@@ -21,6 +21,7 @@ game = Game()
 
 #boucle pour maintenir le canvas ouvert
 running = True
+
 
 while running:
 
@@ -39,6 +40,7 @@ while running:
         game.player.move_up()
     elif game.pressed.get(pygame.K_DOWN) and game.player.rect.y < screen.get_height() - game.player.rect.height:
         game.player.move_down()
+
 
 
     #Mettre à jour le canvas
