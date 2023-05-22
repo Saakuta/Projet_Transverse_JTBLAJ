@@ -7,6 +7,7 @@ class Animation:
 
 
     def update(self, dt):
+
         self.animation_timer += dt  # Temps écoulé depuis le dernier appel à update()
 
         # Vérifier si le temps écoulé dépasse la durée de l'image courante

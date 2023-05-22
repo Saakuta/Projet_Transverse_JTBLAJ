@@ -39,7 +39,7 @@ class Game:
 
     def draw(self):
         self.screen.blit(self.background, (0, 0))
-        self.screen.blit(self.player.surface, self.player.rect)
+        self.screen.blit(self.player.surface, self.player.get_hitbox())
         self.blocks_group.draw(self.screen)  # Dessiner les blocs
 
         # Afficher le temps écoulé

@@ -3,6 +3,8 @@ from animation import Animation
 
 
 class Player(pygame.sprite.Sprite):
+    def get_hitbox(self):
+        return self.rect
     def __init__(self, x_position, y_position, screen_width, blocks_group):
         super().__init__()
         self.x_position = x_position
@@ -37,7 +39,7 @@ class Player(pygame.sprite.Sprite):
         self.y_gravity = 0.2
         self.jump_height = 10
         self.move_speed = 5
-        self.run_speed = 8
+        self.run_speed = 5
         self.screen_width = screen_width
 
     def stop_move(self):
