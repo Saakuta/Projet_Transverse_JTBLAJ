@@ -14,7 +14,6 @@ screen = pygame.display.set_mode((screen_width,screen_height))
 game = Game(screen)
 
 
-
 def main_menu():
     # Charger les images nécessaires
     logo_image = pygame.image.load("assets/LogoTitreGrand.png")

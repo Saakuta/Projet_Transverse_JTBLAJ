@@ -5,7 +5,7 @@ from animation import Animation
 class Player(pygame.sprite.Sprite):
     def get_hitbox(self):
         return self.rect
-    def __init__(self, x_position, y_position, screen_width, blocks_group):
+    def __init__(self, x_position, y_position, screen_width):
         super().__init__()
         self.x_position = x_position
         self.y_position = y_position
@@ -35,7 +35,6 @@ class Player(pygame.sprite.Sprite):
         self.standing_animation = Animation(self.standing_surfaces, frame_duration=200)
         self.standing_surface = self.standing_surfaces[self.current_frame]
         self.rect = self.standing_surface.get_rect(center=(self.x_position, self.y_position))
-        self.blocks_group = blocks_group
         self.y_gravity = 0.2
         self.jump_height = 10
         self.move_speed = 5
@@ -74,11 +73,6 @@ class Player(pygame.sprite.Sprite):
                 self.is_running = False
                 self.current_animation = self.standing_animation
 
-            if pygame.sprite.spritecollide(self, self.blocks_group, False):
-                self.is_on_block = True
-            else:
-                self.is_on_block = False
-
             if keys[pygame.K_SPACE] and (self.is_on_block or self.is_jumping):
                 self.jump()
 
@@ -116,8 +110,6 @@ class Player(pygame.sprite.Sprite):
 
         self.rect = self.surface.get_rect(center=(self.x_position, self.y_position))
 
-        self.check_platform_collision()
-
     def jump(self):
         if not self.is_jumping:
             self.is_jumping = True
@@ -145,32 +137,6 @@ class Player(pygame.sprite.Sprite):
             self.x_velocity = 0
             if not self.is_running:
                 self.current_animation = self.standing_animation
-
-    def check_platform_collision(self):
-        collision_blocks = pygame.sprite.spritecollide(self, self.blocks_group, False)
-        if collision_blocks:
-            block = collision_blocks[0]  # Obtenir le premier bloc en collision
-            if self.y_velocity > 0:  # Vérifier si le personnage est en train de tomber
-                self.rect.bottom = block.rect.top
-                self.is_jumping = False
-                self.y_velocity = 0
-                self.surface = self.standing_surface
-                self.is_on_block = True
-            elif self.y_velocity < 0:  # Vérifier si le personnage est en train de sauter vers le haut
-                self.rect.top = block.rect.bottom
-                self.y_velocity = 0
-                self.is_jumping = False
-                self.surface = self.standing_surface
-            else:  # Vérifier si le personnage est en contact avec un bloc sur les côtés
-                if self.rect.right > block.rect.left and self.x_velocity > 0:
-                    self.rect.right = block.rect.left
-                    self.x_velocity = 0
-                elif self.rect.left < block.rect.right and self.x_velocity < 0:
-                    self.rect.left = block.rect.right
-                    self.x_velocity = 0
-            self.is_on_block = True
-        else:
-            self.is_on_block = False
 
     def stop_jump(self):
         self.y_velocity = 0
